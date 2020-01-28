@@ -19,5 +19,4 @@ class Device
     public const LOUNGE_MAIN_LIGHT = 2;
     public const LOUNGE_TV_BACKLIGHT = 11;
     // End of Hue lights
-
 }
