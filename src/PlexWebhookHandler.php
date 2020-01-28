@@ -7,7 +7,6 @@ class PlexWebhookHandler
 {
 
     private array $payload;
-
     private const EVENT_METHOD_BINDINGS = [
         'media.play' => 'play',
         'media.resume' => 'play',
@@ -83,11 +82,11 @@ class PlexWebhookHandler
         $dimmedBrightnessPercentage = ($this->isShow() ? 20 : 7);
 
         if ($this->getDevice() === device::OFFICE_PC) {
-            return (bool) $this->hue()->setLightBrightness(device::OFFICE_DESK, $dimmedBrightnessPercentage);
+            return (bool)$this->hue()->setLightBrightness(device::OFFICE_DESK, $dimmedBrightnessPercentage);
         }
 
         if ($this->getDevice() === device::LOUNGE_TV) {
-            return (bool) $this->hue()->setLightBrightness(device::LOUNGE_MAIN_LIGHT, 0) && $this->hue()->setLightBrightness(device::LOUNGE_LAMP, $dimmedBrightnessPercentage);
+            return (bool)$this->hue()->setLightBrightness(device::LOUNGE_MAIN_LIGHT, 0) && $this->hue()->setLightBrightness(device::LOUNGE_LAMP, $dimmedBrightnessPercentage);
         }
 
         return false;
@@ -99,12 +98,11 @@ class PlexWebhookHandler
     protected function stop(): bool
     {
         if ($this->getDevice() === device::OFFICE_PC) {
-            return (bool) $this->hue()->setLightBrightness(device::OFFICE_DESK, 75);
+            return (bool)$this->hue()->setLightBrightness(device::OFFICE_DESK, 75);
         }
 
         if ($this->getDevice() === device::LOUNGE_TV) {
-            return (bool) $this->hue()->setLightBrightness(device::LOUNGE_MAIN_LIGHT, 75) &&
-                $this->hue()->setLightBrightness(device::LOUNGE_LAMP, 75);
+            return (bool)$this->hue()->setLightBrightness(device::LOUNGE_MAIN_LIGHT, 75) && $this->hue()->setLightBrightness(device::LOUNGE_LAMP, 75);
         }
 
         return false;

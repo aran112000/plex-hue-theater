@@ -34,10 +34,14 @@ class Hue
      */
     public function setLightBrightness(int $light, int $percentage): ?array
     {
-        return $this->apiCall('lights/' . $light . '/state', [
-            'on' => ($percentage > 0),
-            'bri' => ceil($percentage * 2.55),
-        ], 'PUT');
+        return $this->apiCall(
+            'lights/' . $light . '/state',
+            [
+                'on' => ($percentage > 0),
+                'bri' => ceil($percentage * 2.55),
+            ],
+            'PUT'
+        );
     }
 
     /**
@@ -62,16 +66,19 @@ class Hue
         }
 
         $ch = curl_init($this->getApiEndpoint($endpoint));
-        curl_setopt_array($ch, [
-            CURLOPT_SSL_VERIFYHOST => false,
-            CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_CUSTOMREQUEST => $method,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_POSTFIELDS => json_encode($payload),
-            CURLOPT_HTTPHEADER => [
-                'Content-type: application/json',
+        curl_setopt_array(
+            $ch,
+            [
+                CURLOPT_SSL_VERIFYHOST => false,
+                CURLOPT_SSL_VERIFYPEER => false,
+                CURLOPT_CUSTOMREQUEST => $method,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POSTFIELDS => json_encode($payload),
+                CURLOPT_HTTPHEADER => [
+                    'Content-type: application/json',
+                ],
             ]
-        ]);
+        );
         $response = json_decode(curl_exec($ch), true);
         curl_close($ch);
 
