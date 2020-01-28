@@ -1,0 +1,7 @@
+; Rename this file to settings.ini
+; Get determine your local_bridge_ip and api_user follow Hue's simple guide here:
+; https://developers.meethue.com/develop/get-started-2/
+
+[hue]
+api_user = "abcdefgh123456789"
+local_bridge_ip = "xxx.xxx.xxx.xxx"
