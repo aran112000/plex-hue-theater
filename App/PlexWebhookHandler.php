@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 /**
  * Class PlexWebhookHandler
  */
@@ -22,7 +24,7 @@ class PlexWebhookHandler
     public function __construct()
     {
         if (empty($_REQUEST['payload'])) {
-            throw new InvalidArgumentException('Missing payload');
+            throw new \InvalidArgumentException('Missing payload');
         }
 
         $this->payload = json_decode($_REQUEST['payload'], true);
@@ -33,7 +35,7 @@ class PlexWebhookHandler
             return;
         }
 
-        throw new Exception('Unhandled Plex event');
+        throw new \Exception('Unhandled Plex event');
     }
 
     /**

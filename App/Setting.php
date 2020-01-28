@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 /**
  * Class Setting
  */
@@ -21,7 +23,7 @@ class Setting
             $settingFile = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'settings.ini';
 
             if (!is_readable($settingFile)) {
-                throw new Exception('Missing settings.ini file, rename settings.ini.example --> settings.ini and follow the instructions at the top of the file to generate your required settings');
+                throw new \Exception('Missing settings.ini file, rename settings.ini.example --> settings.ini and follow the instructions at the top of the file to generate your required settings');
             }
 
             $settings = parse_ini_file(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'settings.ini', true);

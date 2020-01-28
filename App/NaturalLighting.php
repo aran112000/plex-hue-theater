@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 /**
  * Class naturalLighting
  *
@@ -8,17 +10,17 @@
 class NaturalLighting
 {
 
-    private const LOCATION = [
-        'lat' => 51.034789,
-        'lng' => -3.051500,
-    ];
-
     /**
      * @return array
      */
     protected function getSunriseSunsetTimestamps()
     {
-        $results = json_decode(file_get_contents('https://api.sunrise-sunset.org/json?' . http_build_query(static::LOCATION)), true)['results'];
+        $location = [
+            'lat' => Setting::get('location', 'lat'),
+            'lng' => Setting::get('location', 'lng'),
+        ];
+
+        $results = json_decode(file_get_contents('https://api.sunrise-sunset.org/json?' . http_build_query($location)), true)['results'];
 
         return [
             'sunrise' => strtotime($results['sunrise']),

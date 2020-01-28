@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 /**
  * Class Hue
  */
@@ -18,7 +20,7 @@ class Hue
         if ($enabled === null) {
             $enabled = true;
 
-            if (static::ONLY_LIGHT_WHEN_DARK && !(new naturalLighting)->isDark()) {
+            if (static::ONLY_LIGHT_WHEN_DARK && !(new naturalLighting())->isDark()) {
                 $enabled = false;
             }
         }
@@ -95,7 +97,7 @@ class Hue
     {
         $bridgeIp = Setting::get('hue', 'local_bridge_ip');
         if (stristr($bridgeIp, 'x')) {
-            throw new Exception('Please ensure you specify your settings in settings.ini (copy settings.ini.example --> settings.ini and follow the instructions at the top of the file to generate your required settings)');
+            throw new \Exception('Please ensure you specify your settings in settings.ini (copy settings.ini.example --> settings.ini and follow the instructions at the top of the file to generate your required settings)');
         }
 
         return 'https://' . $bridgeIp . '/api/' . Setting::get('hue', 'api_user') . '/' . trim($endpoint, ' /');

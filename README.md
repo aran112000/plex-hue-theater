@@ -37,13 +37,13 @@ Great, keep reading and I'll walk you through how you can be up and running in j
 
 4. **Reference your devices**
 
-    Within `/src/Device.php`, define friendly constants for the lights you want to control (helps keep your code clean). The IDs associated with your constants should be those reported by the last step above.
+    Within `/App/Device.php`, define friendly constants for the lights you want to control (helps keep your code clean). The IDs associated with your constants should be those reported by the last step above.
 
     *Feel free to remove the default example devices within there and replace them with your own and name them as you desire, you'll reference your device names in the next step.*
 
 5. **Setup what should happen when you play/stop media on Plex**
 
-    Within `src/PlexWebhookHandler.php`, you'll find `play()` and `stop()` methods where you can define what actions you wish to take on those Plex events. This is pre-populated with an example from my own setup, so you'll need to update the devices to use the constants which you just defined above in step 4.
+    Within `App/PlexWebhookHandler.php`, you'll find `play()` and `stop()` methods where you can define what actions you wish to take on those Plex events. This is pre-populated with an example from my own setup, so you'll need to update the devices to use the constants which you just defined above in step 4.
 
 ### Helpful things to know about Plex's webhooks:
 * At the time of writing, Plex's webhook support requires you to have a Plex Pass subscription

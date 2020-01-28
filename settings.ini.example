@@ -5,3 +5,12 @@
 [hue]
 api_user = "abcdefgh123456789"
 local_bridge_ip = "xxx.xxx.xxx.xxx"
+
+; Update the below to your current Lat/Lng so we can work out
+; when it's dark where you are so lighting changes can happen
+; at only certain times of day. If not completed, it'll always
+; treat as 'dark', meaning lights will always be changed
+
+[location]
+lat = "11.123456"
+lng = "-9.195414"
