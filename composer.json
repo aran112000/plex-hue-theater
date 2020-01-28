@@ -1,7 +1,8 @@
 {
     "name": "aran112000/plex-hue-theater",
+    "version": "1.0.0-stable",
     "description": "Ever wished your Philips Hue lights could be easily adjusted when you start a Movie or Show on Plex? Well wonder no more, you can now connect your Hue lights in any way you like to Plex so as soon as you start watching, your lights change to your preset values, then reset after you finish.",
-    "type": "project",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
